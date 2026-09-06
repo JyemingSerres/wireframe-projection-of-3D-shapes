@@ -93,7 +93,7 @@ class Engine:
         self.world.update(dt)
 
     def render(self) -> None:
-        """Draws the simulation view and the UI then renders them on the screen.
+        """If the display surface is visible to the user, renders the simulation and UI on screen.
 
         Should be called after update_world().
         """

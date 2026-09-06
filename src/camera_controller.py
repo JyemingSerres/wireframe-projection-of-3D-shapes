@@ -104,7 +104,7 @@ class CameraController:
         self.sm_vertical.trigger(event)
 
     def rotate_event(self, mouse_motion: tuple[int, int]) -> None:
-        """Reevaluates the camera's angular velocity based on mouse motion.
+        """Reevaluates the camera's orientation based on mouse motion.
 
         Args:
             mouse_motion: Mouse motion in (x, y) since the last frame.
