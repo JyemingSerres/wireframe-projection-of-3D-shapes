@@ -79,7 +79,7 @@ class Engine:
                     self._focus = True
                     pygame.event.set_grab(True)
                     pygame.mouse.set_visible(False)
-        
+
         mouse_delta = pygame.mouse.get_rel() if self._focus else (0, 0)
         self._cam_control.rotate_event(mouse_delta)
 
@@ -97,6 +97,6 @@ class Engine:
 
         Should be called after update_world().
         """
-        if (pygame.display.get_active()):
+        if pygame.display.get_active():
             self.display.draw(self.world, self.clock.get_fps())
             pygame.display.flip()

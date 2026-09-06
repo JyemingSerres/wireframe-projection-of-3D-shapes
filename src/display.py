@@ -57,7 +57,7 @@ class Display:
         camera = world.camera
         shapes = world.shapes
 
-        # Sort shapes by the distance of their center to the image plane. We make sure to draw 
+        # Sort shapes by the distance of their center to the image plane. We make sure to draw
         # shapes that are closer on top of shapes that are further.
 
         def center_to_plane_dist(shape: Shape):
