@@ -13,8 +13,3 @@ All shapes before the image plane, even those entirely outside the rendering fra
 Shapes are only displayed if all of their vertices are in front of the image plane, meaning the nearest shapes within the rendering frame can effectively disappear. Near clipping would overcome this issue.
 
 Shapes require mostly the same amount of computation whether they are far or near. There is no precision loss or reduction in [level of detail](https://en.wikipedia.org/wiki/Level_of_detail_(computer_graphics)) based on how far the shape is to lighten the computational load.
-
-## Dependencies
-- pygame 2.6.1 (SDL 2.28.4, Python 3.10.6)
-- pylint 3.3.2
-- pyinstaller 6.16.0
