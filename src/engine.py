@@ -7,7 +7,7 @@ Classes:
 import pygame
 from pygame.time import Clock
 
-from camera_controller import CameraController, CamEvent
+from camera_user import CameraUser, CamEvent
 from world import World
 from display import Display
 
@@ -41,7 +41,7 @@ class Engine:
         self.world = world
         self.display = display
         self.clock = clock
-        self._cam_control = CameraController(self.world.camera)
+        self._cam_control = CameraUser(self.world.camera)
 
         self._focus = True
         pygame.event.set_grab(True)

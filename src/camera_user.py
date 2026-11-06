@@ -1,7 +1,7 @@
 """Manage controls over a camera.
 
 Classes:
-    CameraController
+    CameraUser
     SCam
     SCamLateralLeft
     SCamLateralRight
@@ -35,7 +35,7 @@ class CamEvent(Enum):
     DOWN_SHIFT = 6
 
 
-class CameraController:
+class CameraUser:
     """Connects pygame events and inputs to the camera. 
 
     Attributes:
