@@ -79,7 +79,7 @@ class Display:
 
                 if vrtx_dist > 0: # vertex needs to be strictly in front of the aperture
 
-                    # We scale the vertex' coordinates based its distance to the image plane
+                    # We scale the vertex' coordinates based on its distance to the image plane
                     # according to the pinhole camera model. We calculate the vertex's (x, y)
                     # position on the image plane relative to the image center with two orthogonal
                     # projections (refer to the previous paragraph for why a simple dot product is
