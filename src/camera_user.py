@@ -1,4 +1,4 @@
-"""Manage controls over a camera.
+"""Control a camera with user inputs.
 
 Classes:
     CameraUser
@@ -21,6 +21,7 @@ from pygame import Vector3
 from config import CAMERA_LOOK_SENS, CAMERA_SPEED
 from state_machine import State, StateMachine
 from camera import Camera
+from camera_controller import CameraController
 
 __author__ = "Jye-Ming Serres"
 
@@ -35,7 +36,7 @@ class CamEvent(Enum):
     DOWN_SHIFT = 6
 
 
-class CameraUser:
+class CameraUser(CameraController):
     """Connects pygame events and inputs to the camera. 
 
     Attributes:
@@ -58,7 +59,7 @@ class CameraUser:
         Args:
             camera: The camera to control.
         """
-        self.camera = camera
+        super().__init__(camera)
         self.look_sens = CAMERA_LOOK_SENS
         self.speed = CAMERA_SPEED
         self._rel_direction = Vector3(0, 0, 0)
@@ -112,7 +113,6 @@ class CameraUser:
         self.camera.rotate(-self.look_sens*Vector3(mouse_motion[0], mouse_motion[1], 0))
 
     def update(self) -> None:
-        """Reevaluates the camera's rectilinear velocity."""
         self.sm_medial.update()
         self.sm_lateral.update()
         self.sm_vertical.update()
