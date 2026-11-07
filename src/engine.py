@@ -88,8 +88,8 @@ class Engine:
 
         Ideally called after handle_events().
         """
-        self._cam_control.update()
         dt = self.clock.get_time() / 1000
+        self._cam_control.update(dt)
         self.world.update(dt)
 
     def render(self) -> None:
