@@ -37,7 +37,7 @@ octahedron = shape_factory.make_shape("octahedron", Vector3(600, 0, 0), 100, Col
 dodecahedron = shape_factory.make_shape("dodecahedron", Vector3(600, 300, 0), 100, Color.YELLOW)
 icosahedron = shape_factory.make_shape("icosahedron", Vector3(600, 600, 0), 100, Color.CYAN)
 
-camera = Camera(Vector3(0, 0, 0), 360)
+camera = Camera(Vector3(-200, 0, 25), 360)
 world = World(camera, [tetrahedron, cube, octahedron, dodecahedron, icosahedron])
 display = Display(screen)
 engine = Engine(world, display, clock)

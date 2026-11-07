@@ -6,8 +6,9 @@ Classes:
 
 import pygame
 from pygame.time import Clock
+from pygame import Vector3
 
-from camera_user import CameraUser, CamEvent
+from camera_circler import CameraCircler
 from world import World
 from display import Display
 
@@ -41,7 +42,8 @@ class Engine:
         self.world = world
         self.display = display
         self.clock = clock
-        self._cam_control = CameraUser(self.world.camera)
+        self._cam_control = CameraCircler(
+            self.world.camera, Vector3(600, 0, 0), Vector3(0, 0, 1), True)
 
         self._focus = True
         pygame.event.set_grab(True)
@@ -57,20 +59,6 @@ class Engine:
                 case pygame.KEYDOWN:
                     match event.key:
                         case pygame.K_ESCAPE: self.running = False
-                        case pygame.K_a: self._cam_control.translate_event(CamEvent.LEFT_SHIFT)
-                        case pygame.K_d: self._cam_control.translate_event(CamEvent.RIGHT_SHIFT)
-                        case pygame.K_s: self._cam_control.translate_event(CamEvent.BACKWARD_SHIFT)
-                        case pygame.K_w: self._cam_control.translate_event(CamEvent.FORWARD_SHIFT)
-                        case pygame.K_SPACE: self._cam_control.translate_event(CamEvent.UP_SHIFT)
-                        case pygame.K_LSHIFT: self._cam_control.translate_event(CamEvent.DOWN_SHIFT)
-                case pygame.KEYUP:
-                    match event.key:
-                        case pygame.K_a: self._cam_control.translate_event(CamEvent.RIGHT_SHIFT)
-                        case pygame.K_d: self._cam_control.translate_event(CamEvent.LEFT_SHIFT)
-                        case pygame.K_s: self._cam_control.translate_event(CamEvent.FORWARD_SHIFT)
-                        case pygame.K_w: self._cam_control.translate_event(CamEvent.BACKWARD_SHIFT)
-                        case pygame.K_SPACE: self._cam_control.translate_event(CamEvent.DOWN_SHIFT)
-                        case pygame.K_LSHIFT: self._cam_control.translate_event(CamEvent.UP_SHIFT)
                 case pygame.WINDOWFOCUSLOST:
                     self._focus = False
                     pygame.event.set_grab(False)
@@ -79,9 +67,6 @@ class Engine:
                     self._focus = True
                     pygame.event.set_grab(True)
                     pygame.mouse.set_visible(False)
-
-        mouse_delta = pygame.mouse.get_rel() if self._focus else (0, 0)
-        self._cam_control.rotate_event(mouse_delta)
 
     def update_world(self) -> None:
         """Steps the simulation proportionally to real time elapsed.

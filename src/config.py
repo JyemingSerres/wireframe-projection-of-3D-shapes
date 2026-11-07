@@ -14,7 +14,7 @@ TARGET_FRAME_RATE = 100
 
 # Camera controls
 CAMERA_LOOK_SENS = 0.1
-CAMERA_SPEED = 400 # distance units per second
+CAMERA_SPEED = 2000 # distance units per second
 
 # Math constants
 GOLDEN_RATIO = (1 + math.sqrt(5))/2
