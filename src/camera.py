@@ -32,7 +32,7 @@ class Camera:
             aperture: Position of the aperture/position of the camera.
             focal_length: Distance between the aperture and the image plane. Influences FOV.
         """
-        self._aperture = aperture
+        self.aperture = aperture
         self._image_x = Vector3(0, -1, 0)
         self._image_y = Vector3(0, 0, 1)
         self._orientation = self._calculate_orientation()
@@ -40,11 +40,6 @@ class Camera:
 
         self.rectilinear_velocity = Vector3(0, 0, 0)
         self.angular_velocity = Vector3(0, 0, 0)
-
-    @property
-    def aperture(self) -> Vector3:
-        """Position of the aperture/position of the camera."""
-        return self._aperture
 
     @property
     def image_x(self) -> Vector3:
@@ -66,6 +61,13 @@ class Camera:
         """Distance between the aperture and the image plane. Influences FOV."""
         return self._focal_length
 
+    def set_orientation(self, image_x: Vector3, image_y: Vector3) -> None:
+        if image_x.dot(image_y) != 0:
+            raise ValueError("image x and y axis should be perpendicular")
+        self._image_x = image_x.normalize()
+        self._image_y = image_y.normalize()
+        self._orientation = self._calculate_orientation()
+
     def update(self, dt: float) -> None:
         """Applies the camera's rectilinear and angular velocity accross a time interval.
 
@@ -76,7 +78,7 @@ class Camera:
         self.rotate(self.angular_velocity * dt)
 
     def move(self, displacement: Vector3) -> None:
-        self._aperture += displacement
+        self.aperture += displacement
 
     def rotate(self, angular_displacement: Vector3) -> None:
         """Rotates the camera around its aperture.
