@@ -117,6 +117,7 @@ class Display:
 
         # draw texts
         str_controls = """[ESC] quit
+        
             [W] forward
             [A] left
             [S] backward
@@ -124,7 +125,7 @@ class Display:
             [LSHIFT] down
             [SPACE] up"""
         str_fps = f"FPS: {round(fps, 1)}"
-        str_pos = f"({camera_pos.x:.1f}, {camera_pos.y:.1f}, {camera_pos.z:.1f})"
+        str_pos = f"current position ({camera_pos.x:.1f}, {camera_pos.y:.1f}, {camera_pos.z:.1f})"
 
         height = self._screen.get_height()
         width = self._screen.get_width()
