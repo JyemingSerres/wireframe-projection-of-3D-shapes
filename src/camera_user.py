@@ -112,7 +112,7 @@ class CameraUser(CameraController):
         """
         self.camera.rotate(-self.look_sens*Vector3(mouse_motion[0], mouse_motion[1], 0))
 
-    def update(self) -> None:
+    def update(self, dt: float) -> None:
         self.sm_medial.update()
         self.sm_lateral.update()
         self.sm_vertical.update()

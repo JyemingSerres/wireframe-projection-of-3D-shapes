@@ -30,5 +30,5 @@ class CameraController(ABC):
         self.camera = camera
 
     @abstractmethod
-    def update(self) -> None:
+    def update(self, dt: float) -> None:
         """Reevaluates the camera's state."""
