@@ -6,7 +6,7 @@ Classes:
 
 from abc import ABC, abstractmethod
 
-from camera import Camera
+from camera.camera import Camera
 
 __author__ = "Jye-Ming Serres"
 

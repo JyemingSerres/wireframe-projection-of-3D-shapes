@@ -7,7 +7,7 @@ Classes:
 import pygame
 from pygame.time import Clock
 
-from camera_user import CameraUser, CamEvent
+from camera.camera_user import CameraUser, CamEvent
 from config import TARGET_FRAME_RATE
 from display import Display
 from world import World

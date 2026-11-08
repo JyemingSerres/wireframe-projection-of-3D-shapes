@@ -4,7 +4,7 @@ Classes:
     World
 """
 
-from camera import Camera
+from camera.camera import Camera
 from shape import Shape
 
 __author__ = "Jye-Ming Serres"

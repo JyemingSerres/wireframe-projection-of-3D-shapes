@@ -18,8 +18,8 @@ from enum import Enum, unique
 
 from pygame import Vector3
 
-from camera import Camera
-from camera_controller import CameraController
+from camera.camera import Camera
+from camera.camera_controller import CameraController
 from config import CAMERA_LOOK_SENS, CAMERA_SPEED
 from state_machine import State, StateMachine
 

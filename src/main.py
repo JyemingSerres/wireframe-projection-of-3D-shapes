@@ -10,7 +10,7 @@ import sys
 import pygame
 from pygame import Vector3
 
-from camera import Camera
+from camera.camera import Camera
 from config import SCREEN_HEIGHT, SCREEN_WIDTH, Color
 from display import Display
 from engine import Engine
