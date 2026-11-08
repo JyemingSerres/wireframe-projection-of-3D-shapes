@@ -10,13 +10,13 @@ import sys
 import pygame
 from pygame import Vector3
 
-from config import Color, SCREEN_WIDTH, SCREEN_HEIGHT, TARGET_FRAME_RATE
-from utils import resource_path
-from shape_factory import ShapeFactory
 from camera import Camera
-from world import World
+from config import SCREEN_HEIGHT, SCREEN_WIDTH, TARGET_FRAME_RATE, Color
 from display import Display
 from engine import Engine
+from shape_factory import ShapeFactory
+from utils import resource_path
+from world import World
 
 __author__ = "Jye-Ming Serres"
 

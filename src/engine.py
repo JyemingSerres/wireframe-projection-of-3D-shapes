@@ -8,8 +8,8 @@ import pygame
 from pygame.time import Clock
 
 from camera_user import CameraUser, CamEvent
-from world import World
 from display import Display
+from world import World
 
 __author__ = "Jye-Ming Serres"
 

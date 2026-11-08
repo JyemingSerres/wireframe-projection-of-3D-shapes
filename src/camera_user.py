@@ -18,10 +18,10 @@ from enum import Enum, unique
 
 from pygame import Vector3
 
-from config import CAMERA_LOOK_SENS, CAMERA_SPEED
-from state_machine import State, StateMachine
 from camera import Camera
 from camera_controller import CameraController
+from config import CAMERA_LOOK_SENS, CAMERA_SPEED
+from state_machine import State, StateMachine
 
 __author__ = "Jye-Ming Serres"
 

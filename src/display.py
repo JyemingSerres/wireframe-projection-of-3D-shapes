@@ -5,12 +5,12 @@ Classes:
 """
 
 import pygame
-from pygame import Vector3, Vector2, draw
+from pygame import Vector2, Vector3, draw
 from pygame.surface import Surface
 
 from config import Color
-from world import World
 from shape import Shape
+from world import World
 
 __author__ = "Jye-Ming Serres"
 

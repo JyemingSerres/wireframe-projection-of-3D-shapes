@@ -8,9 +8,9 @@ import math
 
 from pygame import Vector3
 
-from config import CAMERA_SPEED
 from camera import Camera
 from camera_controller import CameraController
+from config import CAMERA_SPEED
 
 __author__ = "Jye-Ming Serres"
 

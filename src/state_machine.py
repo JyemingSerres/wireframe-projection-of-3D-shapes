@@ -5,8 +5,8 @@ Classes:
     StateMachine
 """
 
-from enum import Enum
 from abc import ABC, abstractmethod
+from enum import Enum
 
 __author__ = "Jye-Ming Serres"
 
