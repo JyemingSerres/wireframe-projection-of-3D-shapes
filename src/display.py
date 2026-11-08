@@ -9,7 +9,7 @@ from pygame import Vector2, Vector3, draw
 from pygame.surface import Surface
 
 from config import Color
-from shape import Shape
+from shape.shape import Shape
 from world import World
 
 __author__ = "Jye-Ming Serres"

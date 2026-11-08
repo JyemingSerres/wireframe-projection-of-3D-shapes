@@ -9,7 +9,7 @@ from collections.abc import Callable
 from pygame import Vector3
 
 from config import GOLDEN_RATIO, Color
-from shape import Shape
+from shape.shape import Shape
 
 __author__ = "Jye-Ming Serres"
 

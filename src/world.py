@@ -5,7 +5,7 @@ Classes:
 """
 
 from camera.camera import Camera
-from shape import Shape
+from shape.shape import Shape
 
 __author__ = "Jye-Ming Serres"
 

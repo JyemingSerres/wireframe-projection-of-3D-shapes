@@ -14,7 +14,7 @@ from camera.camera import Camera
 from config import SCREEN_HEIGHT, SCREEN_WIDTH, Color
 from display import Display
 from engine import Engine
-from shape_factory import ShapeFactory
+from shape.shape_factory import ShapeFactory
 from utils import resource_path
 from world import World
 
