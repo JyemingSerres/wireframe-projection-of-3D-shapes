@@ -18,9 +18,6 @@ from shape.shape_factory import ShapeFactory
 from utils import resource_path
 from world import World
 
-__author__ = "Jye-Ming Serres"
-
-
 if __name__ == "__main__":
     # Initialize Pygame
     pygame.init()

@@ -12,8 +12,6 @@ from config import Color
 from shape.shape import Shape
 from world import World
 
-__author__ = "Jye-Ming Serres"
-
 
 class Display:
     """Manages everything related to the final display. Acts as the view of the program.

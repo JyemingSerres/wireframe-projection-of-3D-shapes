@@ -12,8 +12,6 @@ from camera.camera import Camera
 from camera.camera_controller import CameraController
 from config import CAMERA_SPEED
 
-__author__ = "Jye-Ming Serres"
-
 
 class CameraCircler(CameraController):
     """Points a camera towards a point and turns it in a circle.

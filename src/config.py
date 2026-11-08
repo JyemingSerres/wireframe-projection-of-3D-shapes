@@ -4,9 +4,6 @@
 import math
 from enum import Enum
 
-__author__ = "Jye-Ming Serres"
-
-
 # Display settings
 SCREEN_WIDTH = 960
 SCREEN_HEIGHT = 720

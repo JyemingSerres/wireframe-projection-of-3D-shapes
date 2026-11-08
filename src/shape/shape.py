@@ -8,8 +8,6 @@ from pygame import Vector3
 
 from config import Color
 
-__author__ = "Jye-Ming Serres"
-
 
 class Shape:
     """Parent class for shapes within the simulation.

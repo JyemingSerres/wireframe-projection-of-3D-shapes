@@ -8,8 +8,6 @@ from abc import ABC, abstractmethod
 
 from camera.camera import Camera
 
-__author__ = "Jye-Ming Serres"
-
 
 class CameraController(ABC):
     """Base class to control a camera.

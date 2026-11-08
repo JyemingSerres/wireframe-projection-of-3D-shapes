@@ -12,8 +12,6 @@ from config import TARGET_FRAME_RATE
 from display import Display
 from world import World
 
-__author__ = "Jye-Ming Serres"
-
 
 class Engine:
     """Acts as the main controller between pygame user inputs, the model and the view.

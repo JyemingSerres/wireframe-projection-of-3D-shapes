@@ -23,8 +23,6 @@ from camera.camera_controller import CameraController
 from config import CAMERA_LOOK_SENS, CAMERA_SPEED
 from state_machine import State, StateMachine
 
-__author__ = "Jye-Ming Serres"
-
 
 @unique
 class CamEvent(Enum):

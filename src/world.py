@@ -7,8 +7,6 @@ Classes:
 from camera.camera import Camera
 from shape.shape import Shape
 
-__author__ = "Jye-Ming Serres"
-
 
 class World:
     """Contains the shapes and the camera. Acts as the model of the program.

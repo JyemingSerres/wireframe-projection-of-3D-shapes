@@ -8,8 +8,6 @@ Classes:
 from abc import ABC, abstractmethod
 from enum import Enum
 
-__author__ = "Jye-Ming Serres"
-
 
 class State(ABC):
     """Abstract class. Manipulated by `StateMachine`.

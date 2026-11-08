@@ -6,8 +6,6 @@ Classes:
 
 from pygame import Vector3
 
-__author__ = "Jye-Ming Serres"
-
 
 class Camera:
     """Embodies a set of states, parameters and necessary data for viewing shapes.

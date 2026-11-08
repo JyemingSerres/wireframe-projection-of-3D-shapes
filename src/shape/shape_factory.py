@@ -11,8 +11,6 @@ from pygame import Vector3
 from config import GOLDEN_RATIO, Color
 from shape.shape import Shape
 
-__author__ = "Jye-Ming Serres"
-
 
 class ShapeFactory:
     """Platonic solid maker using factory design pattern.
