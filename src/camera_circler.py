@@ -1,4 +1,4 @@
-"""Turn a camera around a point.
+"""Turn a camera in a circle.
 
 Classes:
     CameraCircler
@@ -16,10 +16,10 @@ __author__ = "Jye-Ming Serres"
 
 
 class CameraCircler(CameraController):
-    """Points a camera towards a point a turns around it.
+    """Points a camera towards a point and turns it in a circle.
 
     Attributes:
-        camera (:obj:`Camera`): The camera to control.
+        camera (:obj:`Camera`): The camera to turn.
 
     Methods:
         update()
@@ -35,8 +35,12 @@ class CameraCircler(CameraController):
 
         Args:
             camera: The camera to control.
-            center: xxx
-            angular_reference: xxx
+            center: Center of the circle.
+            angular_reference: Defines the roll of the camera when facing the center.
+            inverted: Wether rotation should be clockwise.
+
+        Raises:
+            ValueError: The circle radius is zero.
         """
         super().__init__(camera)
         self._center = center
@@ -47,7 +51,7 @@ class CameraCircler(CameraController):
         self._cycle_arm = Vector3(camera.aperture - self._center)
         self._radius = self._cycle_origin.length()
         if self._radius == 0:
-            raise ValueError("circle radius is zero")
+            raise ValueError("Camera cannot turn in a circle with a radius of zero.")
 
         self._angle = 0
         self._speed = CAMERA_SPEED
@@ -65,6 +69,10 @@ class CameraCircler(CameraController):
         self._point_center()
 
     def _point_center(self) -> None:
+        """Points the camera towards the center of the circle.
+        
+        Aligns the camera's roll with the angular reference.
+        """
         new_image_x = self._angular_reference.cross(self._cycle_arm).normalize()
         new_image_y = self._angular_reference.normalize()
         self.camera.set_orientation(new_image_x, new_image_y)

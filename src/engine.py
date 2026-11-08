@@ -48,6 +48,7 @@ class Engine:
         pygame.event.set_keyboard_grab(False)
 
     def run(self) -> None:
+        """Starts the main loop."""
         while self._running:
             # Try to reach the target frame rate if vsync request is denied.
             self.clock.tick(TARGET_FRAME_RATE)
@@ -100,7 +101,7 @@ class Engine:
         self.world.update(dt)
 
     def _render(self) -> None:
-        """If the display surface is visible to the user, renders the simulation and UI on screen.
+        """Renders the simulation and UI on screen if the display surface is visible to the user.
 
         Should be called after update_world().
         """

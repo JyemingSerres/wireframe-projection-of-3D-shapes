@@ -1,3 +1,9 @@
+"""Utily functions.
+
+functions:
+    resource_path()
+"""
+
 import os
 import sys
 

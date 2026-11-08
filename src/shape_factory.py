@@ -28,7 +28,7 @@ class ShapeFactory:
     """
 
     def make_shape(self, shape_name: str, pos: Vector3, radius: float, color: Color) -> Shape:
-        """Makes a shape according its name, center position, color and circumscribed sphere radius.
+        """Makes a shape according to name, center position, color and circumscribed sphere radius.
 
         shape_name options: "tetrahedron", "cube", "octahedron", "dodecahedron", "icosahedron".
 
@@ -62,7 +62,7 @@ class ShapeFactory:
             A `Callable` that takes in a color and returns a shape.
 
         Raises:
-            ValueError: If the specified shape name is not an available option.
+            ValueError: The specified shape name is not an available option.
         """
         maker = None
         match shape_name:

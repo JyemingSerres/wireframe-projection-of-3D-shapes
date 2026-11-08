@@ -62,8 +62,17 @@ class Camera:
         return self._focal_length
 
     def set_orientation(self, image_x: Vector3, image_y: Vector3) -> None:
+        """Sets the orientation.
+
+        Args:
+            image_x: The new image_x.
+            image_y: The new image_y.
+
+        Raises:
+            ValueError: The passed vectors are not perpendicular.
+        """
         if image_x.dot(image_y) != 0:
-            raise ValueError("image x and y axis should be perpendicular")
+            raise ValueError("New camera orientation vectors should be perpendicular")
         self._image_x = image_x.normalize()
         self._image_y = image_y.normalize()
         self._orientation = self._calculate_orientation()
