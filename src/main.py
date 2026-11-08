@@ -11,7 +11,7 @@ import pygame
 from pygame import Vector3
 
 from camera import Camera
-from config import SCREEN_HEIGHT, SCREEN_WIDTH, TARGET_FRAME_RATE, Color
+from config import SCREEN_HEIGHT, SCREEN_WIDTH, Color
 from display import Display
 from engine import Engine
 from shape_factory import ShapeFactory
@@ -21,7 +21,7 @@ from world import World
 __author__ = "Jye-Ming Serres"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Initialize Pygame
     pygame.init()
     clock = pygame.time.Clock()
@@ -43,11 +43,7 @@ if __name__ == '__main__':
     display = Display(screen)
     engine = Engine(world, display, clock)
 
-    while engine.running:
-        clock.tick(TARGET_FRAME_RATE) # Try to reach the target frame rate if vsync request is denied.
-        engine.handle_events()
-        engine.update_world()
-        engine.render()
+    engine.run()
 
     pygame.quit()
     sys.exit()

@@ -8,6 +8,7 @@ import pygame
 from pygame.time import Clock
 
 from camera_user import CameraUser, CamEvent
+from config import TARGET_FRAME_RATE
 from display import Display
 from world import World
 
@@ -18,15 +19,12 @@ class Engine:
     """Acts as the main controller between pygame user inputs, the model and the view.
 
     Attributes:
-        running (`bool`): Indicates if the engine is running.
         world (:obj:`World`): Acts as the model of the simulation.
         display (:obj:`Display`): Manages the view of the simulation and the UI.
         clock (:obj:`pygame.time.Clock`): Tracks time elapsed and main loop frequency.
 
     Methods:
-        handle_events()
-        update_world()
-        render()
+        run()
     """
 
     def __init__(self, world: World, display: Display, clock: Clock) -> None:
@@ -37,10 +35,11 @@ class Engine:
             display: Manages the view of the simulation and the UI.
             clock: Tracks time elapsed and main loop frequency.
         """
-        self.running = True
         self.world = world
         self.display = display
         self.clock = clock
+
+        self._running = True
         self._cam_control = CameraUser(self.world.camera)
 
         self._focus = True
@@ -48,15 +47,23 @@ class Engine:
         pygame.mouse.set_visible(False)
         pygame.event.set_keyboard_grab(False)
 
-    def handle_events(self) -> None:
+    def run(self) -> None:
+        while self._running:
+            # Try to reach the target frame rate if vsync request is denied.
+            self.clock.tick(TARGET_FRAME_RATE)
+            self._handle_events()
+            self._update_world()
+            self._render()
+
+    def _handle_events(self) -> None:
         """Handles pygame's event loop and other user inputs through pygame."""
         for event in pygame.event.get():
             match event.type:
                 case pygame.QUIT:
-                    self.running = False
+                    self._running = False
                 case pygame.KEYDOWN:
                     match event.key:
-                        case pygame.K_ESCAPE: self.running = False
+                        case pygame.K_ESCAPE: self._running = False
                         case pygame.K_a: self._cam_control.translate_event(CamEvent.LEFT_SHIFT)
                         case pygame.K_d: self._cam_control.translate_event(CamEvent.RIGHT_SHIFT)
                         case pygame.K_s: self._cam_control.translate_event(CamEvent.BACKWARD_SHIFT)
@@ -83,7 +90,7 @@ class Engine:
         mouse_delta = pygame.mouse.get_rel() if self._focus else (0, 0)
         self._cam_control.rotate_event(mouse_delta)
 
-    def update_world(self) -> None:
+    def _update_world(self) -> None:
         """Steps the simulation proportionally to real time elapsed.
 
         Ideally called after handle_events().
@@ -92,7 +99,7 @@ class Engine:
         self._cam_control.update(dt)
         self.world.update(dt)
 
-    def render(self) -> None:
+    def _render(self) -> None:
         """If the display surface is visible to the user, renders the simulation and UI on screen.
 
         Should be called after update_world().
